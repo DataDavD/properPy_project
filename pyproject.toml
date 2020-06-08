@@ -7,6 +7,10 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pytest = "^5.4.3"
+black = "^19.10b0"
+pre-commit = "^2.4.0"
+flake8 = "^3.8.2"
 
 [tool.poetry.dev-dependencies]
 
