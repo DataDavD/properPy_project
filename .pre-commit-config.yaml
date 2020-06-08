@@ -13,10 +13,3 @@ repos:
 #    sha: v1.0.4
 #    hooks:
 #      - id: python-bandit-vulnerability-check
-  - repo: local
-    hooks:
-      - id: tests
-        name: run tests
-        entry: poetry run pytest --cov -v
-        language: system
-        types: [python]
