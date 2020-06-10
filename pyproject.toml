@@ -44,7 +44,7 @@ line_length = 100
 known_third_party = []
 
 [tool.pytest.ini_options]
-testpaths = ["test"]
+testpaths = ["test", "tests"]
 
 
 [build-system]
