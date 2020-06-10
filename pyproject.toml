@@ -43,6 +43,9 @@ use_parentheses = true
 line_length = 100
 known_third_party = []
 
+[tool.pytest.ini_options]
+testpaths = ["test"]
+
 
 [build-system]
 requires = ["poetry>=0.12"]
