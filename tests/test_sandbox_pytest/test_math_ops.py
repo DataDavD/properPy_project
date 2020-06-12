@@ -8,7 +8,7 @@ def test_ints_tuple():
 
 
 @pytest.fixture()
-def test_list():
+def test_list() -> None:
     return [1, 2, 3, 4]
 
 
@@ -25,6 +25,20 @@ def test_add_ints() -> None:
     assert add(1, 2, 3, 4) == 10
 
 
+@pytest.mark.parametrize(
+    "add_args, add_exp_result", [((1, 2, 3, 4), 10), ([1, 2, 3, 4], 10), ((2, 3, 5), 10)]
+)
+def test_add_params_ints(add_args, add_exp_result) -> None:
+    assert add(*add_args) == add_exp_result
+
+
+@pytest.mark.parametrize(
+    "add_args, add_exp_result", [((1, 2, 3, 4), 10), ([1, 2, 3, 4], 10), ((2, 3, 5), 10)]
+)
+def test_add_params_iterables(add_args, add_exp_result) -> None:
+    assert add(add_args) == add_exp_result
+
+
 @pytest.mark.tuple
 def test_sub_tuple(test_ints_tuple) -> None:
     assert sub(test_ints_tuple) == -8
@@ -36,6 +50,20 @@ def test_sub_list(test_list) -> None:
 
 def test_sub_ints() -> None:
     assert sub(1, 2, 3, 4) == -8
+
+
+@pytest.mark.parametrize(
+    "add_args, add_exp_result", [((10, 5), 5), ([100, 100, 0, 5], -5), ((500, 100, 300), 100)]
+)
+def test_sub_params_ints(add_args, add_exp_result) -> None:
+    assert sub(*add_args) == add_exp_result
+
+
+@pytest.mark.parametrize(
+    "add_args, add_exp_result", [((10, 5), 5), ([100, 100, 0, 5], -5), ((500, 100, 300), 100)]
+)
+def test_sub_params_iterables(add_args, add_exp_result) -> None:
+    assert sub(add_args) == add_exp_result
 
 
 @pytest.mark.tuple
