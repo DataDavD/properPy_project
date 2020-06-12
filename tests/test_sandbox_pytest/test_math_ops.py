@@ -1,14 +1,17 @@
+from typing import Sequence
+
 import pytest
+
 from sandbox_pytest.math_ops import add, div, multiply, sub
 
 
 @pytest.fixture()
-def test_ints_tuple():
+def test_ints_tuple() -> Sequence[int]:
     return 1, 2, 3, 4
 
 
 @pytest.fixture()
-def test_list() -> None:
+def test_list() -> Sequence[int]:
     return [1, 2, 3, 4]
 
 
@@ -79,6 +82,22 @@ def test_multiply_ints() -> None:
     assert multiply(1, 2, 3, 4) == 24
 
 
+@pytest.mark.parametrize(
+    "add_args, add_exp_result",
+    [((10, 5), 50), ([100, 100, 0, 5], 0), ((500, 100, 300), 15_000_000)],
+)
+def test_multiply_params_iterables(add_args, add_exp_result) -> None:
+    assert multiply(*add_args) == add_exp_result
+
+
+@pytest.mark.parametrize(
+    "add_args, add_exp_result",
+    [((10, 5), 50), ([100, 100, 0, 5], 0), ((500, 100, 300), 15_000_000)],
+)
+def test_multiply_params_ints(add_args, add_exp_result) -> None:
+    assert multiply(add_args) == add_exp_result
+
+
 @pytest.mark.tuple
 def test_div_tuple() -> None:
     assert div((4, 2, 1)) == 2
@@ -90,3 +109,17 @@ def test_div_list() -> None:
 
 def test_div_ints() -> None:
     assert div(4, 2, 1) == 2
+
+
+@pytest.mark.parametrize(
+    "add_args, add_exp_result", [((10, 5), 2), ([100, 100, 1], 1), ((500, 250), 2)],
+)
+def test_div_params_iterables(add_args, add_exp_result) -> None:
+    assert div(*add_args) == add_exp_result
+
+
+@pytest.mark.parametrize(
+    "add_args, add_exp_result", [((10, 5), 2), ([100, 100, 1], 1), ((500, 250), 2)],
+)
+def test_div_params_ints(add_args, add_exp_result) -> None:
+    assert div(add_args) == add_exp_result
