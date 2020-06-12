@@ -41,7 +41,9 @@ include_trailing_comma = true
 force_grid_wrap = 0
 use_parentheses = true
 line_length = 100
+indent = '    '
 known_third_party = ["pytest"]
+known_first_party = ["sandbox_pytest"]
 
 [tool.pytest.ini_options]
 testpaths = ["test", "tests"]
