@@ -324,6 +324,20 @@ testing = ["fields", "hunter", "process-tests (2.0.2)", "six", "pytest-xdist", "
 
 [[package]]
 category = "main"
+description = "Thin-wrapper around the mock package for easier use with pytest"
+name = "pytest-mock"
+optional = false
+python-versions = ">=3.5"
+version = "3.1.1"
+
+[package.dependencies]
+pytest = ">=2.7"
+
+[package.extras]
+dev = ["pre-commit", "tox", "pytest-asyncio"]
+
+[[package]]
+category = "main"
 description = "YAML parser and emitter for Python"
 name = "pyyaml"
 optional = false
@@ -408,7 +422,7 @@ python-versions = "*"
 version = "0.2.4"
 
 [metadata]
-content-hash = "e6b5903458f64443652cf9997638a629bfae88f1f15d07742ffbded08044d3ec"
+content-hash = "d2397845109bbbdd9090042dda978ce01971fa407ea39d8667215bc0f47ae0b4"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -570,6 +584,10 @@ pytest = [
 pytest-cov = [
     {file = "pytest-cov-2.9.0.tar.gz", hash = "sha256:b6a814b8ed6247bd81ff47f038511b57fe1ce7f4cc25b9106f1a4b106f1d9322"},
     {file = "pytest_cov-2.9.0-py2.py3-none-any.whl", hash = "sha256:c87dfd8465d865655a8213859f1b4749b43448b5fae465cb981e16d52a811424"},
+]
+pytest-mock = [
+    {file = "pytest-mock-3.1.1.tar.gz", hash = "sha256:636e792f7dd9e2c80657e174c04bf7aa92672350090736d82e97e92ce8f68737"},
+    {file = "pytest_mock-3.1.1-py3-none-any.whl", hash = "sha256:a9fedba70e37acf016238bb2293f2652ce19985ceb245bbd3d7f3e4032667402"},
 ]
 pyyaml = [
     {file = "PyYAML-5.3.1-cp27-cp27m-win32.whl", hash = "sha256:74809a57b329d6cc0fdccee6318f44b9b8649961fa73144a98735b0aaf029f1f"},

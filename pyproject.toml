@@ -15,6 +15,8 @@ mypy = "^0.780"
 pytest-cov = "^2.9.0"
 isort = "^4.3.21"
 seed-isort-config = "^2.2.0"
+coverage = "^5.1"
+pytest-mock = "^3.1.1"
 
 [tool.poetry.dev-dependencies]
 
