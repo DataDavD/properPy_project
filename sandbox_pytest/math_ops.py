@@ -3,7 +3,7 @@ from typing import Sequence, Union
 
 
 def add(*args: Union[Sequence[int], int]) -> int:
-    if isinstance(args, int):
+    if all(isinstance(x, int) for x in args):
         result = reduce((lambda x, y: x + y), args)
         return result
     else:
@@ -12,7 +12,7 @@ def add(*args: Union[Sequence[int], int]) -> int:
 
 
 def sub(*args: Union[Sequence[int], int]) -> int:
-    if isinstance(args, int):
+    if all(isinstance(x, int) for x in args):
         result = reduce((lambda x, y: x - y), args)
         return result
     else:
@@ -21,7 +21,7 @@ def sub(*args: Union[Sequence[int], int]) -> int:
 
 
 def multiply(*args: Union[Sequence[int], int]) -> int:
-    if isinstance(args, int):
+    if all(isinstance(x, int) for x in args):
         result = reduce((lambda x, y: x * y), args)
         return result
     else:
@@ -30,7 +30,7 @@ def multiply(*args: Union[Sequence[int], int]) -> int:
 
 
 def div(*args: Union[Sequence[int], int]) -> int:
-    if isinstance(args, int):
+    if all(isinstance(x, int) for x in args):
         result = reduce((lambda x, y: x / y), args)
         return result
     else:
