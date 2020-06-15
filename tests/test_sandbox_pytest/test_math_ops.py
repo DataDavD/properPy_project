@@ -1,4 +1,4 @@
-from typing import Sequence
+from typing import List, Tuple
 
 import pytest
 
@@ -6,12 +6,12 @@ from sandbox_pytest.math_ops import add, div, multiply, sub
 
 
 @pytest.fixture()
-def test_ints_tuple() -> Sequence[int]:
+def test_ints_tuple() -> Tuple[int, ...]:
     return 1, 2, 3, 4
 
 
 @pytest.fixture()
-def test_list() -> Sequence[int]:
+def test_list() -> List[int]:
     return [1, 2, 3, 4]
 
 
