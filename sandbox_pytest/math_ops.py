@@ -1,38 +1,26 @@
-from functools import reduce
-from typing import Sequence, Union
+def add(*args: int) -> int:
+    result: int = args[0]
+    for x in args[1:]:
+        result += x
+    return result
 
 
-def add(*args: Union[Sequence[int], int]) -> int:
-    if all(isinstance(x, int) for x in args):
-        result = reduce((lambda x, y: x + y), args)  # type: ignore
-        return result  # type: ignore
-    else:
-        result = reduce((lambda x, y: x + y), *args)  # type: ignore
-        return result  # type: ignore
+def sub(*args: int) -> int:
+    result: int = args[0]
+    for x in args[1:]:
+        result -= x
+    return result
 
 
-def sub(*args: Union[Sequence[int], int]) -> int:
-    if all(isinstance(x, int) for x in args):
-        result = reduce((lambda x, y: x - y), args)  # type: ignore
-        return result  # type: ignore
-    else:
-        result = reduce((lambda x, y: x - y), *args)  # type: ignore
-        return result  # type: ignore
+def multiply(*args: int) -> int:
+    result: int = args[0]
+    for x in args[1:]:
+        result *= x
+    return result
 
 
-def multiply(*args: Union[Sequence[int], int]) -> int:
-    if all(isinstance(x, int) for x in args):
-        result = reduce((lambda x, y: x * y), args)  # type: ignore
-        return result  # type: ignore
-    else:
-        result = reduce((lambda x, y: x * y), *args)  # type: ignore
-        return result  # type: ignore
-
-
-def div(*args: Union[Sequence[int], int]) -> int:
-    if all(isinstance(x, int) for x in args):
-        result = reduce((lambda x, y: x / y), args)  # type: ignore
-        return result  # type: ignore
-    else:
-        result = reduce((lambda x, y: x / y), *args)  # type: ignore
-        return result  # type: ignore
+def div(*args: int) -> float:
+    result: float = args[0]
+    for x in args[1:]:
+        result /= x
+    return result
