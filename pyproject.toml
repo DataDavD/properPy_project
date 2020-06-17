@@ -17,6 +17,7 @@ isort = "^4.3.21"
 seed-isort-config = "^2.2.0"
 coverage = "^5.1"
 pytest-mock = "^3.1.1"
+requests = "^2.23.0"
 
 [tool.poetry.dev-dependencies]
 
