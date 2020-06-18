@@ -8,24 +8,24 @@ on:
 
 jobs:
 
-  test:
+  lint_format_type_hint:
     runs-on: ubuntu-latest
-
     steps:
+
       - name: Check out repo
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+      - name: Set up Python 3.8.2
+        uses: actions/setup-python@v2
         with:
-          python-version: 3.8.2
+          python-version: 3.8
 
-      - name: Install
+      - name: Install poetry
         uses: abatilo/actions-poetry@v1.5.0
         with:
-          python_version: 3.8.2
+          python_version: 3.8
           poetry_version: 1.0
           path: '.'
           args: install
@@ -33,7 +33,7 @@ jobs:
       - name: Flake8 linting
         uses: abatilo/actions-poetry@v1.5.0
         with:
-          python_version: 3.8.2
+          python_version: 3.8
           poetry_version: 1.0.8
           path: '.'
           run: run black . --check
@@ -41,15 +41,36 @@ jobs:
       - name: Black code formatting
         uses: abatilo/actions-poetry@v1.5.0
         with:
-          python_version: 3.8.2
+          python_version: 3.8
           poetry_version: 1.0.8
           path: '.'
           run: run black . --check
 
+  type_hint_and_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.8
+          poetry_version: 1.0
+          path: '.'
+          args: install
+
       - name: mypy type checking
         uses: abatilo/actions-poetry@v1.5.0
         with:
-          python_version: 3.8.2
+          python_version: 3.8
           poetry_version: 1.0.8
           path: '.'
           args: run mypy
@@ -57,7 +78,7 @@ jobs:
       - name: Run pytest with cov
         uses: abatilo/actions-poetry@v1.5.0
         with:
-          python_version: 3.8.2
+          python_version: 3.8
           poetry_version: 1.0.8
           path: '.'
           args: run python -m pytest --cov=sandbox_pytest --cov-branch --cov-fail-under=100 tests/
