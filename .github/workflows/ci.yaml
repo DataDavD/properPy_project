@@ -1,0 +1,26 @@
+name: CI
+
+on:
+
+  push:
+    branches:
+      - master
+  pull_requests:
+    branches:
+      - master
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
