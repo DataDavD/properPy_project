@@ -7,8 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-
-  lint_format_type_hint:
+  lint_format_typehints_tests:
     runs-on: ubuntu-latest
     steps:
 
@@ -45,27 +44,6 @@ jobs:
           poetry_version: 1.0.8
           path: '.'
           run: run black . --check
-
-  type_hint_and_tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-
-      - name: Install poetry
-        uses: abatilo/actions-poetry@v1.5.0
-        with:
-          python_version: 3.8
-          poetry_version: 1.0
-          path: '.'
-          args: install
 
       - name: mypy type checking
         uses: abatilo/actions-poetry@v1.5.0
