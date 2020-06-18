@@ -20,4 +20,41 @@ jobs:
       - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
-          python-version: 3.8
+          python-version: 3.8.2
+
+      - name: Install
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.8.2
+          poetry_version: 1.0
+          path: '.'
+          args: install
+
+      - name: Flake8 linting
+        with:
+          python_version: 3.8.2
+          poetry_version: 1.0.8
+          path: '.'
+          run: run black . --check
+
+      - name: Black code formatting
+        with:
+          python_version: 3.8.2
+          poetry_version: 1.0.8
+          path: '.'
+          run: run black . --check
+
+      - name: mypy type checking
+        with:
+          python_version: 3.8.2
+          poetry_version: 1.0.8
+          path: '.'
+          args: run mypy
+
+      - name: Run pytest with cov
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.8.2
+          poetry_version: 1.0.8
+          path: '.'
+          args: run python -m pytest --cov=sandbox_pytest --cov-branch --cov-fail-under=100 tests/
