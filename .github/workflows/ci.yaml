@@ -60,3 +60,19 @@ jobs:
           poetry_version: 1.0.8
           path: '.'
           args: run python -m pytest --cov=sandbox_pytest --cov-branch --cov-fail-under=100 tests/
+
+      - name: Generate coverage report
+        uses: abatilo/actions-poetry@v1.5.0
+        with:
+          python_version: 3.8
+          poetry_version: 1.0.8
+          path: '.'
+          args: run python -m pytest --cov=./ --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          flags: unittests
+          fail_ci_if_error: true
