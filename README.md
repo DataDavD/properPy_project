@@ -11,5 +11,9 @@ I have also been using this repo to improve my skills and knowledge of structuri
 and improving the development cycle with tools like pre-commit hooks, poetry, isort, black,
 coverage, and flake8.
 
+The repo contains a couple modules for basic math functions and an API for getting a Star Wars
+character's DOB based on their name (or name substring).  Each module has a corresponding test
+module.
+
 Additionally, I added GitHub Actions CI support to further improve my knowledge of
 Python project organization and structuring and how to deploy it using CI.
