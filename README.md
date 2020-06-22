@@ -1,4 +1,4 @@
-# Sandbox repo for improving Python knowledge of project structuring, formatting, testing, and CI.
+# Sandbox repo for improving Python knowledge of Python project structuring, formatting, testing, and CI.
 
 <p align="center">
   <a href="https://github.com/DataDavD/sandbox_pytest/actions?query=workflow%3ACI"><img alt="Github Actions CI" src="https://github.com/DataDavD/sandbox_pytest/workflows/CI/badge.svg">
